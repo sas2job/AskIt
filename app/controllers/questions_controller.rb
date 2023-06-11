@@ -7,6 +7,10 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def edit
+    @question = Question.find_by id: params[:id]
+  end
+  
   def create
     @question = Question.new questions_params
     if @question.save

@@ -6,5 +6,9 @@
   <time datetime="<%= question.formatted_created_at %>">
     <%= question.formatted_created_at %>
   </time>
-  <p><%= question.body %></p>
+  <p>
+    <%= question.body %>
+    <br>
+    <%= link_to 'Edit', edit_question_path(question) %>
+  </p>
 <% end %>
