@@ -20,6 +20,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.find_by id: params[:id]
+    @question.destroy
+    redirect_to questions_path
+  end
+
   def create
     @question = Question.new questions_params
     if @question.save
