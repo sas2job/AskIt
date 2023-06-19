@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find_by id: params[:id]
     if @question.update(questions_params)
+      flash[:success] = "Question updated!"
       redirect_to questions_path
     else
       render :edit
@@ -27,12 +28,14 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find_by id: params[:id]
     @question.destroy
+    flash[:success] = "Question deleted!"
     redirect_to questions_path
   end
 
   def create
     @question = Question.new questions_params
     if @question.save
+      flash[:success] = "Question created!"
       redirect_to questions_path
     else
       render :new
