@@ -2,6 +2,9 @@ class AnswersController < ApplicationController
   before_action :set_question!
   before_action :set_answer!, except: :create
 
+  def edit
+  end
+
   def create
     @answer = @question.answers.build answer_params
 
