@@ -5,6 +5,15 @@ class AnswersController < ApplicationController
   def edit
   end
 
+  def update
+    if @answer.update(answer_params)
+      flash[:success] = "Answer updated!"
+      redirect_to questions_path(@question)
+    else
+      render :edit
+    end
+  end
+
   def create
     @answer = @question.answers.build answer_params
 
