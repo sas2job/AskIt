@@ -1,5 +1,5 @@
 module ApplicationHelper
-def currently_at()
+def currently_at(current_page = '')
   render partial: 'shared/menu'
 end
 
